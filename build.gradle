@@ -4,8 +4,10 @@ plugins {
 }
 
 node {
-	download = true
-	version = "9.11.1"
+    version = '14.17.0' // Use a recent stable version
+    download = true
+}
+
 	npmVersion = "5.6.0"
 }
 
