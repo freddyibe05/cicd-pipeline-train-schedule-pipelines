@@ -1,17 +1,11 @@
 plugins {
-    id "com.github.node-gradle.node" version "3.0.1"
+  //inlude the nodeJS plugin to execute nodejs and npm tasks
+  id "com.moowork.node" version "1.2.0"
 }
 
 node {
-    version = '14.17.0' // Use a more recent Node.js version
-    download = true
-}
-
-task buildApp(type: NpmTask) {
-    args = ['run', 'build']
-}
-
-
+	download = true
+	version = "9.11.1"
 	npmVersion = "5.6.0"
 }
 
@@ -35,6 +29,10 @@ task zip(type: Zip) {
 
 //declare task dependencies
 build.dependsOn zip
+zip.dependsOn npm_build
+npm_build.dependsOn npm_test
+npm_test.dependsOn npmInstall
+npm_build.dependsOn npmInstall
 zip.dependsOn npm_build
 npm_build.dependsOn npm_test
 npm_test.dependsOn npmInstall
