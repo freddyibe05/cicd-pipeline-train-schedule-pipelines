@@ -5,7 +5,7 @@ plugins {
 
 node {
     download = true
-    version = "14.17.0" // Update to a more recent Node.js version
+    version = "14.17.0" // Use a more recent Node.js version
     npmVersion = "6.14.13" // Update to a compatible npm version
 }
 
@@ -33,4 +33,3 @@ zip.dependsOn npm_build
 npm_build.dependsOn npm_test
 npm_test.dependsOn npmInstall
 npm_build.dependsOn npmInstall
-
